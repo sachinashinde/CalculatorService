@@ -12,6 +12,7 @@ public class Division implements Command {
 
     public int execute(int value1, int value2) {
         logger.info("Executed division");
+        if(value2 == 0) return 0;
         return value1 / value2;
     }
 }

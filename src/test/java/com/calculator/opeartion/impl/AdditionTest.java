@@ -18,10 +18,11 @@ public class AdditionTest {
     }
 
     @Test
-    public void addTest() {
+    public void executeTest() {
         assertEquals(0, addtion.execute(0, 0));
         assertEquals(1, addtion.execute(0, 1));
         assertEquals(-1, addtion.execute(0, -1));
+        assertEquals(0, addtion.execute(1, -1));
         assertEquals(-2, addtion.execute(-1, -1));
     }
 

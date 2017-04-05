@@ -12,6 +12,6 @@ public class Addition implements Command {
 
     public int execute(int value1, int value2) {
         logger.info("Executed addition");
-        return value1 + value2;
+        return value1 - value2;
     }
 }
