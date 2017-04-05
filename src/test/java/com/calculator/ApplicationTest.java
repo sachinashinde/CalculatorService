@@ -1,20 +1,23 @@
 package com.calculator;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.SpringBootConfiguration;
+import org.junit.Rule;
+import org.junit.Test;
+import org.springframework.boot.test.rule.OutputCapture;
+
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.not;
 
 /**
  * Created by sachin on 4/4/2017.
  */
-@SpringBootConfiguration
-public class Application {
-    private static final Logger logger = LoggerFactory.getLogger(Application.class);
-    public static void main(String[] args) {
-        logger.info("Welcome to spring boot demo app");
-        SpringApplication.run(Application.class, args);
-
-        
+public class ApplicationTest {
+    @Rule
+    public OutputCapture outputCapture = new OutputCapture();
+    
+    @Test
+    public void testLoadedCustomLogbackConfig() throws Exception {
+        Application.main(new String[0]);
+        this.outputCapture.expect(containsString("Welcome to spring boot demo app"));
+        this.outputCapture.expect(not(containsString("Sample Trace Message")));
     }
 }
